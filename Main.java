@@ -1,13 +1,11 @@
-package hotelApp;
+package src.hotelApp;
 
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
-    private static Customer customer;
-
-
+    static Hotel hotel;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -90,6 +88,11 @@ public class Main {
             case 2:
                 break;
             case 3:
+                System.out.print("예약자 이름을 입력해주세요 : ");
+                String usetName = sc.nextLine();
+                System.out.println("예약자 전화번호를 입력해주세요 : ");
+                String phone = sc.nextLine();
+                hotel.cancelRes(usetName,phone);
                 break;
             default:
                 System.out.println("잘못된 입력입니다. 다시 입력해주세요");

@@ -1,8 +1,8 @@
 package hotelApp;
 
-public class Reservation {
+public class Reservation{
     private String roomType;
-    private String reservationDate;
+    private String reservationDate;     //예약 날짜
     private String reservationNumber;
     private Customer customer;
 
@@ -28,5 +28,12 @@ public class Reservation {
 
     public Customer getCustomer() {
         return customer;
+    }
+
+    public void Cancel(){
+        roomType = "";
+        reservationDate = "";
+        reservationNumber = "";
+        customer = null;
     }
 }

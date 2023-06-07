@@ -1,17 +1,40 @@
 package hotelApp;
 
 public class Room {
-    double roomFee;
-    String roomType; // 싱글룸, 더블룸, 트윈룸, 스위트룸
-    boolean reservationStatus; // 0 or 1
+    private String roomType;
+    private double roomFee;
+    private int roomSize;
+    private boolean reservationStatus;
 
-    public void getRoomFee() {}
-
-    public void getRoomSize() {}
-
-    public void getReservationStatus() {}
-    private void initializeRoom(double roomFee, int roomSize, boolean reservationStatus) { // 객실 정보 4가지 작성
-
+    public Room(String roomType, double roomFee, int roomSize, boolean reservationStatus) {
+        this.roomType = roomType;
+        this.roomFee = roomFee;
+        this.roomSize = roomSize;
+        this.reservationStatus = reservationStatus;
     }
 
+    public void displayRoomInfo() {
+        System.out.println("객실 타입: " + roomType);
+        System.out.println("객실 요금: " + roomFee + " $");
+        System.out.println("객실 크기: " + roomSize + " 평");
+        System.out.println((reservationStatus ? "예약 가능" : "예약 불가능"));
+        System.out.println();
+    }
+
+    public void setReservationStatus() {
+        this.reservationStatus = !reservationStatus;
+    }
+
+    public String getRoomType() {
+        return roomType;
+    }
+    public double getRoomFee() {
+        return roomFee;
+    }
+    public int getRoomSize() {
+        return roomSize;
+    }
 }
+
+
+

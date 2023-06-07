@@ -22,7 +22,7 @@ public class Customer {
 
     public void reserveRoom() {}
 
-    public void cancelReservation(int reservationNumber) {
+    public void cancelReservation(String reservationNumber) {
 
     }
 }

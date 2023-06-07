@@ -1,15 +1,21 @@
-package hotelProject;
+package hotelApp;
 
 public class Room {
     double roomFee;
     int roomSize;
     boolean reservationStatus;
 
-    public void getRoomFee() {}
+    public double getRoomFee() {
+        return roomFee;
+    }
 
-    public void getRoomSize() {}
+    public int getRoomSize() {
+        return roomSize;
+    }
 
-    public void getReservationStatus() {}
+    public boolean getReservationStatus() {
+        return reservationStatus;
+    }
     private void initializeRoom(double roomFee, int roomSize, boolean reservationStatus) { // 객실 정보 4가지 작성
 
     }

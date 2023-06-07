@@ -1,9 +1,11 @@
-package hotelProject;
+package hotelApp;
 
 public class Hotel {
     double revenue;
 
-    public void getRevenue() {}
+    public double getRevenue() {
+        return revenue;
+    }
     private void getRoomListCheck() {}
 
 }

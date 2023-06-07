@@ -1,4 +1,7 @@
 package hotelApp;
+
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -93,12 +96,18 @@ public class Main {
                 // 예약 확인 기능 구현
                 break;
             case 3:
-                // 예약 취소 기능 구현
+                System.out.print("예약자 이름을 입력해주세요 : ");
+                String usetName = sc.nextLine();
+                System.out.println("예약자 전화번호를 입력해주세요 : ");
+                String phone = sc.nextLine();
+                hotel.cancelRes(usetName,phone);
                 break;
             default:
                 System.out.println("잘못된 입력입니다. 다시 입력해주세요");
                 CustomerReservationSystem();
                 break;
+
         }
+
     }
 }

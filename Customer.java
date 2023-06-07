@@ -1,4 +1,4 @@
-package hotelApp;
+package src.hotelApp;
 
 public class Customer {
 
@@ -22,7 +22,7 @@ public class Customer {
 
     public void reserveRoom() {}
 
-    public void cancelReservation(int reservationNumber) {
+    public void cancelReservation(String reservationNumber) {
 
     }
 }

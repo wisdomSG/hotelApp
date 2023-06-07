@@ -1,17 +1,34 @@
 package hotelProject;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import java.util.ArrayList;
+
 public class Room {
-    double roomFee;
-    int roomSize;
-    boolean reservationStatus;
+    private double roomFee;
+    private int roomSize;
+    private boolean reservationStatus;
 
-    public void getRoomFee() {}
-
-    public void getRoomSize() {}
-
-    public void getReservationStatus() {}
-    private void initializeRoom(double roomFee, int roomSize, boolean reservationStatus) { // 객실 정보 4가지 작성
-
+    public Room(double roomFee, int roomSize) {
+        this.roomFee = roomFee;
+        this.roomSize = roomSize;
+        this.reservationStatus = false; // 처음에는 예약되지 않은 상태로 초기화
     }
 
+    public double getRoomFee() {
+        return roomFee;
+    }
+
+    public int getRoomSize() {
+        return roomSize;
+    }
+
+    public boolean getReservationStatus() {
+        return reservationStatus;
+    }
+
+    public void setReservationStatus(boolean reservationStatus) {
+        this.reservationStatus = reservationStatus;
+    }
 }

@@ -6,4 +6,6 @@ public class Hotel {
     public void getRevenue() {}
     private void getRoomListCheck() {}
 
+
+
 }

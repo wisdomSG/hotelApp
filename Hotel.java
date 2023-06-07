@@ -1,23 +1,20 @@
-package src.hotelApp;
-
+package hotelApp;
 import java.util.ArrayList;
 
-public class Hotel {
+class Hotel {
+    private ArrayList<Room> roomList = new ArrayList<>();
     double revenue;
     ArrayList<Reservation> reservationList = new ArrayList<>();
-    ArrayList<Room> roomList = new ArrayList<>();
 
-    public void cancelRes(String name, String phone){
-        for(Reservation res : reservationList){
+    public void cancelRes(String name, String phone) {
+        for (Reservation res : reservationList) {
             Customer customer = res.getCustomer();
-            if(customer.getName().equals(name)){
-                if(customer.getPhoneNumber().equals(phone))
-                {
-
-                    for (Room room: roomList){
-                        if(res.getRoomType().equals(room.roomType)){
-                            this.revenue -=room.roomFee;
-                            System.out.println(room.roomType+"의 가격 "+room.roomFee+"원이 환불되었습니다.");
+            if (customer.getName().equals(name)) {
+                if (customer.getPhoneNumber().equals(phone)) {
+                    for (Room room : roomList) {
+                        if (res.getRoomType().equals(room.getRoomType())) {
+                            this.revenue -= room.getRoomFee();
+                            System.out.println(room.getRoomType() + "의 가격 " + room.getRoomFee() + "원이 환불되었습니다.");
                             room.setReservationStatus();
                             break;
                         }
@@ -25,10 +22,34 @@ public class Hotel {
                     res.Cancel();
                     System.out.println("취소 완료되었습니다.");
                     break;
-
                 }
             }
-            System.out.println("해당 이름 혹은 번호는 존재하지 않습니다. 다시 한번 확인해주세요.");
+        }
+    }
+    public Hotel() {
+        roomList = new ArrayList<>();
+        revenue = 0.0;
+    }
+
+    public void initializeRooms() {
+        Room singleRoom = new Room("싱글룸", 100.0, 16, true);
+        Room doubleRoom = new Room("더블룸", 150.0, 24, true);
+        Room twinRoom = new Room("트윈룸", 200.0, 16, true);
+        Room suiteRoom = new Room("스위트룸", 250.0, 34, true);
+
+        roomList.add(singleRoom);
+        roomList.add(doubleRoom);
+        roomList.add(twinRoom);
+        roomList.add(suiteRoom);
+    }
+
+    public void displayRooms() {
+        System.out.println("객실 목록");
+        System.out.println("");
+        for (int i = 0; i < roomList.size(); i++) {
+            Room room = roomList.get(i);
+            System.out.println("객실 번호: " + (i + 1));
+            room.displayRoomInfo(); // 객실 정보 출력
         }
     }
 

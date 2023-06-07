@@ -1,4 +1,4 @@
-package hotelProject;
+package hotelApp;
 
 public class Hotel {
     double revenue;

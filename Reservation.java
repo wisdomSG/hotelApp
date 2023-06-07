@@ -1,4 +1,4 @@
-package hotelProject;
+package hotelApp;
 
 public class Reservation extends Customer {
     int room;

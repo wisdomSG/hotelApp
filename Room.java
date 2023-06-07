@@ -1,9 +1,9 @@
-package hotelProject;
+package hotelApp;
 
 public class Room {
     double roomFee;
-    int roomSize;
-    boolean reservationStatus;
+    String roomType; // 싱글룸, 더블룸, 트윈룸, 스위트룸
+    boolean reservationStatus; // 0 or 1
 
     public void getRoomFee() {}
 

@@ -1,20 +1,18 @@
-package hotelApp;
+package src.hotelApp;
 
 public class Room {
+    String roomType;
     double roomFee;
     int roomSize;
     boolean reservationStatus;
 
-    public double getRoomFee() {
-        return roomFee;
-    }
+    public void getRoomFee() {}
 
-    public int getRoomSize() {
-        return roomSize;
-    }
+    public void getRoomSize() {}
 
-    public boolean getReservationStatus() {
-        return reservationStatus;
+    public void getReservationStatus() {}
+    public void setReservationStatus(){
+        reservationStatus = !reservationStatus;
     }
     private void initializeRoom(double roomFee, int roomSize, boolean reservationStatus) { // 객실 정보 4가지 작성
 

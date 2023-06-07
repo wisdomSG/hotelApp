@@ -1,5 +1,4 @@
-package src.hotelApp;
-
+package hotelApp;
 
 public class Reservation{
     private String roomType;

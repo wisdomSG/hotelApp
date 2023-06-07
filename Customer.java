@@ -1,4 +1,4 @@
-package src.hotelApp;
+package hotelApp;
 
 public class Customer {
 

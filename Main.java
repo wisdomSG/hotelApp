@@ -1,12 +1,12 @@
 package hotelApp;
-
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
+
+    static Hotel hotel;
     public static void main(String[] args) {
-        Hotel hotel = new Hotel();
+        hotel = new Hotel();
         hotel.initializeRooms(); // Room 정보 가져오기
 
         Scanner sc = new Scanner(System.in);

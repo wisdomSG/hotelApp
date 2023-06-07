@@ -20,8 +20,21 @@ public class Room {
         System.out.println((reservationStatus ? "예약 가능" : "예약 불가능"));
         System.out.println();
     }
-}
 
+    public void setReservationStatus() {
+        this.reservationStatus = !reservationStatus;
     }
 
+    public String getRoomType() {
+        return roomType;
+    }
+    public double getRoomFee() {
+        return roomFee;
+    }
+    public int getRoomSize() {
+        return roomSize;
+    }
 }
+
+
+

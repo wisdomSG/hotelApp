@@ -1,14 +1,11 @@
 package hotelProject;
-
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
-    private static ArrayList<Room> rooms;
-
     public static void main(String[] args) {
-        rooms = new ArrayList<>();
-        initializeRooms(); // Room 정보 가져오기
+        Hotel hotel = new Hotel();
+        hotel.initializeRooms(); // Room 정보 가져오기
 
         Scanner sc = new Scanner(System.in);
 
@@ -28,7 +25,7 @@ public class Main {
                     ChoiceManager();
                     break;
                 case 1:
-                    displayRooms(); // 객실 정보를 출력
+                    hotel.displayRooms(); // 객실 정보를 출력
                     break;
                 case 2:
                     setCustomerInfo();
@@ -103,32 +100,6 @@ public class Main {
                 System.out.println("잘못된 입력입니다. 다시 입력해주세요");
                 CustomerReservationSystem();
                 break;
-        }
-    }
-
-    private static void initializeRooms() {
-        Room singleRoom = new Room("싱글룸", 100.0, 16, true);
-        Room doubleRoom = new Room("더블룸", 150.0, 24, true);
-        Room twinRoom = new Room("트윈룸", 200.0, 16, true);
-        Room suiteRoom = new Room("스위트룸", 250.0, 34, true);
-
-        rooms.add(singleRoom);
-        rooms.add(doubleRoom);
-        rooms.add(twinRoom);
-        rooms.add(suiteRoom);
-    }
-
-    private static void displayRooms() {
-        System.out.println("객실 목록");
-        System.out.println("");
-        for (int i = 0; i < rooms.size(); i++) {
-            Room room = rooms.get(i);
-            System.out.println("객실 번호: " + (i + 1));
-            System.out.println("객실 타입: " + room.getRoomType());
-            System.out.println("객실 요금: " + room.getRoomFee() + " $");
-            System.out.println("객실 크기: " + room.getRoomSize() + " 평");
-            System.out.println((room.getReservationStatus() ? "예약 가능" : "예약 불가능"));
-            System.out.println();
         }
     }
 }

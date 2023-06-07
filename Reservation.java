@@ -1,16 +1,32 @@
-package hotelProject;
+package hotelApp;
 
-public class Reservation extends Customer {
-    String roomType;
-    String reservationDate;
+public class Reservation {
+    private String roomType;
+    private String reservationDate;
+    private String reservationNumber;
+    private Customer customer;
 
+    public Reservation() {}
 
-    public  Reservation() {}
-    public void getRoom() {}
-    public void getReservationDate() {}
-    public Reservation(String name, String phoneNumber, String roomType, String reservationDate) {
-        super(name, phoneNumber);
+    public Reservation(String name, String phoneNumber, String roomType, String reservationDate,String reservationNumber) {
+        this.customer = new Customer(name,phoneNumber);
         this.roomType = roomType;
         this.reservationDate = reservationDate;
+        this.reservationNumber = reservationNumber;
+    }
+
+    public String getRoomType() {
+        return roomType;
+    }
+    public String getReservationDate() {
+        return reservationDate;
+    }
+
+    public String getReservationNumber() {
+        return reservationNumber;
+    }
+
+    public Customer getCustomer() {
+        return customer;
     }
 }

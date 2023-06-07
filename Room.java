@@ -1,4 +1,4 @@
-package hotelProject;
+package hotelApp;
 
 public class Room {
     private String roomType;
@@ -11,22 +11,6 @@ public class Room {
         this.roomFee = roomFee;
         this.roomSize = roomSize;
         this.reservationStatus = reservationStatus;
-    }
-
-    public double getRoomFee() {
-        return roomFee;
-    }
-
-    public int getRoomSize() {
-        return roomSize;
-    }
-
-    public boolean getReservationStatus() {
-        return reservationStatus;
-    }
-
-    public String getRoomType() {
-        return roomType;
     }
 
     public void displayRoomInfo() {

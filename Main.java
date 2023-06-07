@@ -1,4 +1,4 @@
-package hotelProject;
+package hotelApp;
 import java.util.ArrayList;
 import java.util.Scanner;
 

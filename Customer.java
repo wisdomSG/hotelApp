@@ -1,4 +1,4 @@
-package hotelProject;
+package hotelApp;
 
 public class Customer {
 
@@ -10,8 +10,12 @@ public class Customer {
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
-    public void getName() {}
-    public void getPhoneNumber() {}
+    public String getName() {
+        return name;
+    }
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
     public void reservationListCheck(int reservationNumber) {
 
     }

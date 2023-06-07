@@ -1,14 +1,14 @@
 package hotelProject;
 
-import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
     private static ArrayList<Room> rooms;
 
     public static void main(String[] args) {
         rooms = new ArrayList<>();
-        initializeRooms(); // Room 객체를 생성하고 리스트에 추가
+        initializeRooms(); // Room 정보 가져오기
 
         Scanner sc = new Scanner(System.in);
 
@@ -106,26 +106,29 @@ public class Main {
         }
     }
 
-    private static void displayRooms() {
-        System.out.println("1. 싱글룸 / 100.0 / 16m^2 / " + getAvailability(0));
-        System.out.println("2. 더블룸 / 150.0 / 24m^2 / " + getAvailability(1));
-        System.out.println("3. 트윈룸 / 200.0 / 26m^2 / " + getAvailability(2));
-        System.out.println("4. 스위트룸 / 250.0 / 34m^2 / " + getAvailability(3));
-        System.out.println();
-    }
-
-    private static String getAvailability(int roomIndex) {
-        if (rooms.get(roomIndex).getReservationStatus()) {
-            return "empty)";
-        } else {
-            return "full";
-        }
-    }
-
     private static void initializeRooms() {
-        rooms.add(new Room(100.0, 16));
-        rooms.add(new Room(150.0, 24));
-        rooms.add(new Room(200.0, 26));
-        rooms.add(new Room(250.0, 34));
+        Room singleRoom = new Room("싱글룸", 100.0, 16, true);
+        Room doubleRoom = new Room("더블룸", 150.0, 24, true);
+        Room twinRoom = new Room("트윈룸", 200.0, 16, true);
+        Room suiteRoom = new Room("스위트룸", 250.0, 34, true);
+
+        rooms.add(singleRoom);
+        rooms.add(doubleRoom);
+        rooms.add(twinRoom);
+        rooms.add(suiteRoom);
+    }
+
+    private static void displayRooms() {
+        System.out.println("객실 목록");
+        System.out.println("");
+        for (int i = 0; i < rooms.size(); i++) {
+            Room room = rooms.get(i);
+            System.out.println("객실 번호: " + (i + 1));
+            System.out.println("객실 타입: " + room.getRoomType());
+            System.out.println("객실 요금: " + room.getRoomFee() + " $");
+            System.out.println("객실 크기: " + room.getRoomSize() + " 평");
+            System.out.println((room.getReservationStatus() ? "예약 가능" : "예약 불가능"));
+            System.out.println();
+        }
     }
 }

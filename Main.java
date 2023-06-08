@@ -14,7 +14,6 @@ public class Main {
         Main main = new Main();
         main.start();
     }
-
     public void start() {
         hotel = new Hotel(this);
         hotel.initializeRooms(); // Room 정보 가져오기

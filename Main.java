@@ -40,7 +40,7 @@ public class Main {
                 case 2 -> checkCustomerInfo();  // 객실 예약
                 case 3 -> enterCustomerInfo();  //고객 정보 등록
                 case 100 ->{
-
+                    System.out.println("시스템이 종료되었습니다 -슬슬기-");
                 }
                 default -> System.out.println("잘못된 입력입니다. 1 또는 2를 입력해주세요");
             }

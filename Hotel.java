@@ -2,9 +2,12 @@ package hotelApp;
 import java.util.ArrayList;
 
 class Hotel {
+    Main main;
     ArrayList<Room> roomList;
     double revenue;
     ArrayList<Reservation> reservationList = new ArrayList<>();
+
+
 
     public void cancelRes(String resNum) {
         for (Reservation res : reservationList) {
@@ -14,10 +17,9 @@ class Hotel {
                         this.revenue -= room.getRoomFee();
                         System.out.println(room.getRoomType() + "의 가격 " + room.getRoomFee() + "원이 환불되었습니다.");
                         room.setReservationStatus();
+                        main.getCustomer().refundMoney(room.getRoomFee());
                         break;
                     }
-                    System.out.println("취소 완료되었습니다.");
-                    break;
                 }
                 reservationList.remove(res);
                 System.out.println("취소 완료되었습니다.");
@@ -26,11 +28,11 @@ class Hotel {
             }
         }
     }
-    public Hotel() {
+    public Hotel(Main main) {
         roomList = new ArrayList<>();
         revenue = 0.0;
+        this.main = main;
     }
-
     public void initializeRooms() {
         Room singleRoom = new Room("싱글룸", 100.0, 16, true);
         Room doubleRoom = new Room("더블룸", 150.0, 24, true);
@@ -52,5 +54,7 @@ class Hotel {
             room.displayRoomInfo(); // 객실 정보 출력
         }
     }
-
+    public Customer getCustomer() {
+        return main.getCustomer();
+    }
 }

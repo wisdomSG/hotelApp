@@ -1,4 +1,4 @@
-package src.hotelApp;
+package hotelApp;
 
 public class Room {
     private final String roomType;

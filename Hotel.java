@@ -11,7 +11,7 @@ class Hotel {
         revenue = 0.0;
     }
 
-    public void cancelRes(String resNum) {
+    public void cancelRes(String resNum, Customer customer) {
         for (Reservation res : reservationList) {
             if (res.getReservationNumber().equals(resNum)) {
                 for (Room room : roomList) {
@@ -19,7 +19,7 @@ class Hotel {
                         this.revenue -= room.getRoomFee();
                         System.out.println(room.getRoomType() + "의 가격 " + room.getRoomFee() + "원이 환불되었습니다.");
                         room.setReservationStatus();
-                        res.getCustomer().refundMoney(room.getRoomFee());
+                        customer.refundMoney(room.getRoomFee());
                         break;
                     }
                 }

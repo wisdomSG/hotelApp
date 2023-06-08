@@ -1,4 +1,4 @@
-package hotelApp;
+package src.hotelApp;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,23 +7,21 @@ class Hotel {
     double revenue;
     ArrayList<Reservation> reservationList = new ArrayList<>();
 
-    public void cancelRes(String name, String phone) {
+    public void cancelRes(String resNum) {
         for (Reservation res : reservationList) {
-            Customer customer = res.getCustomer();
-            if (customer.getName().equals(name)) {
-                if (customer.getPhoneNumber().equals(phone)) {
-                    for (Room room : roomList) {
-                        if (res.getRoomType().equals(room.getRoomType())) {
-                            this.revenue -= room.getRoomFee();
-                            System.out.println(room.getRoomType() + "의 가격 " + room.getRoomFee() + "원이 환불되었습니다.");
-                            room.setReservationStatus();
-                            break;
-                        }
+            if (res.getReservationNumber().equals(resNum)) {
+                for (Room room : roomList) {
+                    if (res.getRoomType().equals(room.getRoomType())) {
+                        this.revenue -= room.getRoomFee();
+                        System.out.println(room.getRoomType() + "의 가격 " + room.getRoomFee() + "원이 환불되었습니다.");
+                        room.setReservationStatus();
+                        break;
                     }
-                    res.Cancel();
-                    System.out.println("취소 완료되었습니다.");
-                    break;
                 }
+                reservationList.remove(res);
+                System.out.println("취소 완료되었습니다.");
+                break;
+
             }
         }
     }

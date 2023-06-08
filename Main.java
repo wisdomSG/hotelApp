@@ -1,6 +1,6 @@
 package src.hotelApp;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.UUID;
 import java.time.LocalDateTime;
@@ -8,16 +8,15 @@ import java.time.LocalDateTime;
 public class Main {
     static Customer customer;
     static Hotel hotel;
-    static Room room;
     public static void main(String[] args) {
         hotel = new Hotel();
         hotel.initializeRooms(); // Room 정보 가져오기
 
         Scanner sc = new Scanner(System.in);
-
-        while (true) {
+        String choiceNum = "";
+        while (!Objects.equals(choiceNum, "100")) {
             displayIntroduce();
-            String choiceNum = sc.nextLine();
+            choiceNum = sc.nextLine();
             int choice;
             try {
                 choice = Integer.parseInt(choiceNum); // 입력된 문자열을 정수로 변환
@@ -26,21 +25,20 @@ public class Main {
                 continue;
             }
             switch (choice) {
-                case 0:
+                case 0 -> {
                     displayManager();
                     ChoiceManager();
-                    break;
-                case 1:
-                    hotel.displayRooms(); // 객실 정보를 출력
-                    break;
-                case 2:
+                }
+                case 1 -> hotel.displayRooms(); // 객실 정보를 출력
+                case 2 -> {
                     setCustomerInfo();
                     displaySubIntro();
                     CustomerReservationSystem();
-                    break;
-                default:
-                    System.out.println("잘못된 입력입니다. 1 또는 2를 입력해주세요");
-                    break;
+                }
+                case 100 ->{
+
+                }
+                default -> System.out.println("잘못된 입력입니다. 1 또는 2를 입력해주세요");
             }
         }
     }

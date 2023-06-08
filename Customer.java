@@ -17,19 +17,5 @@ public class Customer {
     public double getMoney() {
         return money;
     }
-    public String getName() {
-        return name;
-    }
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-    public void reservationListCheck(int reservationNumber) {
 
-    }
-
-    public void reserveRoom() {}
-
-    public void cancelReservation(String reservationNumber) {
-
-    }
 }

@@ -1,6 +1,5 @@
 package src.hotelApp;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 class Hotel {
     ArrayList<Room> roomList;
@@ -43,17 +42,13 @@ class Hotel {
     }
 
     public void displayRooms() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("객실 목록");
-        System.out.println("");
+        System.out.println();
         for (int i = 0; i < roomList.size(); i++) {
             Room room = roomList.get(i);
             System.out.println("객실 번호: " + (i + 1));
             room.displayRoomInfo(); // 객실 정보 출력
         }
     }
-
-    public void getRevenue() {}
-    private void getRoomListCheck() {}
 
 }

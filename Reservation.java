@@ -25,7 +25,4 @@ public class Reservation{
         return reservationNumber;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
 }

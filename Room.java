@@ -1,9 +1,9 @@
 package src.hotelApp;
 
 public class Room {
-    private String roomType;
-    private double roomFee;
-    private int roomSize;
+    private final String roomType;
+    private final double roomFee;
+    private final int roomSize;
     boolean reservationStatus;
 
     public Room(String roomType, double roomFee, int roomSize, boolean reservationStatus) {
@@ -30,9 +30,6 @@ public class Room {
     }
     public double getRoomFee() {
         return roomFee;
-    }
-    public int getRoomSize() {
-        return roomSize;
     }
 }
 

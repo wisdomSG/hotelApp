@@ -10,7 +10,6 @@ class Hotel {
         roomList = new ArrayList<>();
         revenue = 0.0;
     }
-
     public void cancelRes(String resNum, Customer customer) {
         for (Reservation res : reservationList) {
             if (res.getReservationNumber().equals(resNum)) {
@@ -41,7 +40,6 @@ class Hotel {
         roomList.add(twinRoom);
         roomList.add(suiteRoom);
     }
-
     public void displayRooms() {
         System.out.println("객실 목록");
         System.out.println();

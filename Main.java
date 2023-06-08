@@ -156,7 +156,7 @@ public class Main {
             case 3 -> {
                 System.out.print("예약번호를 입력해주세요 : ");
                 String reservationNum = sc.next();
-                hotel.cancelRes(reservationNum);
+                hotel.cancelRes(reservationNum, customer);
             }
             default -> {
                 System.out.println("잘못된 입력입니다. 다시 입력해주세요");

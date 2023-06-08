@@ -6,11 +6,12 @@ import java.util.UUID;
 import java.time.LocalDateTime;
 
 public class Main {
-    static Customer customer;
+    static  Customer customer;
     static Hotel hotel;
     public static void main(String[] args) {
         hotel = new Hotel();
         hotel.initializeRooms(); // Room 정보 가져오기
+
 
         Scanner sc = new Scanner(System.in);
         String choiceNum = "";
@@ -68,6 +69,7 @@ public class Main {
         System.out.println("블베스 호텔에 오신 것을 환영합니다 :) ");
         System.out.println("1. 객실 조회");
         System.out.println("2. 고객");
+
 
         if (customer != null) {
             System.out.println("고객의 소지금: $" + customer.getMoney());

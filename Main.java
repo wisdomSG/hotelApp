@@ -1,12 +1,9 @@
-package src.hotelApp;
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Scanner;
-import java.util.UUID;
+package hotelApp;
+import java.util.*;
 import java.time.LocalDateTime;
 
 public class Main {
-    static  Customer customer;
+    static Customer customer;
     static Hotel hotel;
     public static void main(String[] args) {
         hotel = new Hotel();
@@ -84,10 +81,6 @@ public class Main {
 
     private static void setCustomerInfo() {
         Scanner sc = new Scanner(System.in);
-//        System.out.print("고객님의 이름을 입력하세요 >>");
-//        String csName = sc.nextLine();
-//        System.out.print("고객님의 전화번호를 입력하세요 >> ");
-//        String csPhoneNum = sc.nextLine();
         System.out.print("고객님의 소지금을 입력하세요 >> ");
         String csMoney = sc.nextLine();
         customer = new Customer();
@@ -167,8 +160,11 @@ public class Main {
                     System.out.println("고객의 소지금: " + customerMoney +"$");
                     System.out.println("객실의 가격: " + roomFee+"$");
                 } else {
+                    // 예약번호 생성
+                    UUID reservationId = UUID.randomUUID();
+                    String reservationNumber = reservationId.toString();
                     // 예약 객체 생성
-                    Reservation reservation = new Reservation(name, phoneNumber, roomType, reservationDate);
+                    Reservation reservation = new Reservation(name, phoneNumber, roomType, reservationDate,reservationNumber);
 
                     // 예약 정보를 예약 목록에 추가
                     hotel.reservationList.add(reservation);
@@ -184,6 +180,7 @@ public class Main {
                     customer.setMoney(remainingMoney);
 
                     System.out.println("객실이 예약되었습니다.");
+                    System.out.println("예약 번호는 : " +reservationNumber+ " 입니다.");
                     System.out.println("고객의 남은 소지금: $" + remainingMoney);
                 }
             }

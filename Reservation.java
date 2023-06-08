@@ -1,4 +1,4 @@
-package src.hotelApp;
+package hotelApp;
 
 public class Reservation{
     private String roomType;
@@ -8,10 +8,11 @@ public class Reservation{
 
     public Reservation() {}
 
-    public Reservation(String name, String phoneNumber, String roomType, String reservationDate) {
+    public Reservation(String name, String phoneNumber, String roomType, String reservationDate, String reservationNumber) {
         this.customer = new Customer(name,phoneNumber);
         this.roomType = roomType;
         this.reservationDate = reservationDate;
+        this.reservationNumber = reservationNumber;
     }
 
     public String getRoomType() {

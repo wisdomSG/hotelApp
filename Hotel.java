@@ -1,5 +1,6 @@
-package src.hotelApp;
+package hotelApp;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 class Hotel {
     ArrayList<Room> roomList;

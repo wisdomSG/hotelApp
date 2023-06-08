@@ -2,7 +2,7 @@ package hotelApp;
 import java.util.ArrayList;
 
 class Hotel {
-    private ArrayList<Room> roomList = new ArrayList<>();
+    private ArrayList<Room> roomList;
     double revenue;
     ArrayList<Reservation> reservationList = new ArrayList<>();
 

@@ -145,24 +145,17 @@ public class Main {
         System.out.print("번호를 선택해주세요 >> ");
         int input = sc.nextInt();
         switch (input) {
-            case 1:
-                // 객실 예약 기능 구현
-                roomReservation();
-                break;
-            case 2:
-                checkReservation();
-                // 예약 확인 기능 구현
-                break;
-            case 3:
+            case 1 -> roomReservation();  // 객실 예약 기능 구현
+            case 2 -> checkReservation(); // 예약 확인 기능 구현
+            case 3 -> {
                 System.out.print("예약번호를 입력해주세요 : ");
                 String reservationNum = sc.next();
                 hotel.cancelRes(reservationNum);
-                break;
-            default:
+            }
+            default -> {
                 System.out.println("잘못된 입력입니다. 다시 입력해주세요");
                 CustomerReservationSystem();
-                break;
-
+            }
         }
 
     }

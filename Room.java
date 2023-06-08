@@ -4,7 +4,7 @@ public class Room {
     private String roomType;
     private double roomFee;
     private int roomSize;
-    private boolean reservationStatus;
+    boolean reservationStatus;
 
     public Room(String roomType, double roomFee, int roomSize, boolean reservationStatus) {
         this.roomType = roomType;

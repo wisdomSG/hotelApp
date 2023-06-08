@@ -1,8 +1,9 @@
 package hotelApp;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 class Hotel {
-    private ArrayList<Room> roomList = new ArrayList<>();
+    private  ArrayList<Room> roomList;
     double revenue;
     ArrayList<Reservation> reservationList = new ArrayList<>();
 
@@ -44,6 +45,7 @@ class Hotel {
     }
 
     public void displayRooms() {
+        Scanner sc = new Scanner(System.in);
         System.out.println("객실 목록");
         System.out.println("");
         for (int i = 0; i < roomList.size(); i++) {

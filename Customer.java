@@ -31,6 +31,7 @@ public class Customer {
     public String getPhoneNumber() {
         return phoneNumber;
     }
+
     public void refundMoney(double amount) {
         money += amount;
     }

@@ -1,4 +1,4 @@
-package src.hotelApp;
+package hotelApp;
 import java.util.ArrayList;
 
 class Hotel {
@@ -16,6 +16,8 @@ class Hotel {
                         room.setReservationStatus();
                         break;
                     }
+                    System.out.println("취소 완료되었습니다.");
+                    break;
                 }
                 reservationList.remove(res);
                 System.out.println("취소 완료되었습니다.");

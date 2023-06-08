@@ -95,14 +95,25 @@ public class Main {
         try {
             System.out.println("예약번호를 입력해 주세요");
             System.out.print("예약번호: ");
-            String input = checkScanner.nextLine();
-            // parseInt(input) 으로 -예약 리스트-에서 조회하기
-            // 있으면 예약 조회를 시작하겠습니다 출력후 thread 3초후 예약 정보 출력
-            // 없으면 해당의 예약정보가 없습니다.
-            // 예약번호를 다시 한 번 확인 하세요!
+            String reservationInput = checkScanner.nextLine();
+            for(Reservation r : hotel.reservationList ) {
+                if(r.getReservationNumber() == reservationInput) {
+                    // show reservation
+                    // break;
+                }
+                else {
+
+                }
+            }
+            // sout(예약번호를 찾을수 없습니다.)
+
+            // for(int i = 0; i < hotel.reservationList.size(); i++)
+            //if( hotel.reservationList.get(i).getReservationNumber() == reservationInput)
+
         }
         catch (NumberFormatException e){
             System.out.println("잘못된 형식으로 적으셨습니다");
+            checkReservation();
         }
     }
 

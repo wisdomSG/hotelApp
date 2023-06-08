@@ -24,7 +24,6 @@ public class Room {
     public void setReservationStatus() {
         this.reservationStatus = !reservationStatus;
     }
-
     public String getRoomType() {
         return roomType;
     }

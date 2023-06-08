@@ -33,7 +33,6 @@ class Hotel {
         revenue = 0.0;
         this.main = main;
     }
-
     public void initializeRooms() {
         Room singleRoom = new Room("싱글룸", 100.0, 16, true);
         Room doubleRoom = new Room("더블룸", 150.0, 24, true);

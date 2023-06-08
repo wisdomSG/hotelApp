@@ -1,6 +1,9 @@
 package hotelApp;
+import java.util.ArrayList;
+import java.util.Objects;
+import java.util.Scanner;
+import java.util.UUID;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
 import java.time.LocalDateTime;
 
 public class Main {
@@ -49,11 +52,12 @@ public class Main {
         System.out.println("2. 돌아가기");
     }
 
-    private static void ChoiceManager() {
+    private void ChoiceManager() {
         Scanner sc = new Scanner(System.in);
         int input = sc.nextInt();
         switch (input) {
             case 1:
+                printAllReservation();
                 // 예약 목록 조회 기능 구현
                 break;
             case 2:
@@ -62,6 +66,13 @@ public class Main {
             default:
                 System.out.println("잘못된 입력입니다. 다시 입력하세요");
                 displayManager();
+        }
+    }
+
+    private void printAllReservation(){
+        // 모든 예약된 정보 출력하기!
+        for(Reservation printRervation : hotel.reservationList ) {
+            System.out.println(printRervation);
         }
     }
 
@@ -104,6 +115,31 @@ public class Main {
         }
     }
 
+    private void checkReservation() {
+        // 해당 손님의 정보 1건만 출력하기
+        Scanner checkScanner = new Scanner(System.in);
+        try {
+            System.out.println("예약번호를 입력해 주세요");
+            System.out.print("예약번호: ");
+            String reservationInput = checkScanner.nextLine();
+            for(Reservation printRervation : hotel.reservationList ) {
+                if(printRervation.getReservationNumber().equals(reservationInput)) {
+                    System.out.println(printRervation);
+                    break;
+                }
+                else {
+
+                }
+            }
+
+
+        }
+        catch (NumberFormatException e){
+            System.out.println("잘못된 형식으로 적으셨습니다");
+            checkReservation();
+        }
+    }
+
     private void CustomerReservationSystem() {
         Scanner sc = new Scanner(System.in);
         System.out.print("번호를 선택해주세요 >> ");
@@ -114,6 +150,7 @@ public class Main {
                 roomReservation();
                 break;
             case 2:
+                checkReservation();
                 // 예약 확인 기능 구현
                 break;
             case 3:

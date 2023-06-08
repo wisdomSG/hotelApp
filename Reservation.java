@@ -28,4 +28,13 @@ public class Reservation{
         return reservationNumber;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    @Override
+    public String toString(){
+        return  "예약번호: " + reservationNumber + " 이름: " + customer.getName() + " 핸드폰번호: " + customer.getPhoneNumber()
+                + " 방: " + roomType + " 예약날짜: "  + reservationDate;
+    }
 }

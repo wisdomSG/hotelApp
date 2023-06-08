@@ -16,9 +16,8 @@ public class Main {
     }
 
     public void start() {
-        hotel = new Hotel(this);
+        hotel = new Hotel();
         hotel.initializeRooms(); // Room 정보 가져오기
-
 
         Scanner sc = new Scanner(System.in);
         String choiceNum = "";
@@ -88,7 +87,6 @@ public class Main {
         System.out.println("1. 객실 조회");
         System.out.println("2. 예약");
         System.out.println("3. 회원 등록");
-
 
         if (customer != null) {
             System.out.println("고객의 소지금: $" + customer.getMoney());
@@ -239,9 +237,5 @@ public class Main {
         } else {
             System.out.println("해당 객실은 예약할 수 없습니다.");
         }
-    }
-
-    public Customer getCustomer() {
-        return customer;
     }
 }

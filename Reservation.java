@@ -1,5 +1,5 @@
 package hotelApp;
-
+import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
 public class Reservation{
@@ -34,7 +34,8 @@ public class Reservation{
 
     @Override
     public String toString(){
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy년 M월 d일");
         return  "예약번호: " + reservationNumber + " 이름: " + customer.getName() + " 핸드폰번호: " + customer.getPhoneNumber()
-                + " 방: " + roomType + " 예약날짜: "  + reservationDate;
+                + " 방: " + roomType + " 예약날짜: "  + reservationDate.format(dateTimeFormatter);
     }
 }

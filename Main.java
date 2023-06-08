@@ -72,8 +72,14 @@ public class Main {
 
     private void printAllReservation(){
         // 모든 예약된 정보 출력하기!
-        for(Reservation printRervation : hotel.reservationList ) {
-            System.out.println(printRervation);
+        if(hotel.reservationList.isEmpty()) {
+            System.out.println("예약된 정보가 없습니다");
+            return;
+        }
+        else {
+            for(Reservation printRervation : hotel.reservationList ) {
+                System.out.println(printRervation);
+            }
         }
     }
 
@@ -119,6 +125,7 @@ public class Main {
     private void checkReservation() {
         // 해당 손님의 정보 1건만 출력하기
         Scanner checkScanner = new Scanner(System.in);
+        boolean flag = true;
         try {
             System.out.println("예약번호를 입력해 주세요");
             System.out.print("예약번호: ");
@@ -126,14 +133,14 @@ public class Main {
             for(Reservation printRervation : hotel.reservationList ) {
                 if(printRervation.getReservationNumber().equals(reservationInput)) {
                     System.out.println(printRervation);
+                    flag = false;
                     break;
                 }
                 else {
 
                 }
             }
-
-
+            if(flag) System.out.println("예약번호가 일치하지 않습니다");
         }
         catch (NumberFormatException e){
             System.out.println("잘못된 형식으로 적으셨습니다");

@@ -8,11 +8,10 @@ public class Reservation{
 
     public Reservation() {}
 
-    public Reservation(String name, String phoneNumber, String roomType, String reservationDate,String reservationNumber) {
+    public Reservation(String name, String phoneNumber, String roomType, String reservationDate) {
         this.customer = new Customer(name,phoneNumber);
         this.roomType = roomType;
         this.reservationDate = reservationDate;
-        this.reservationNumber = reservationNumber;
     }
 
     public String getRoomType() {

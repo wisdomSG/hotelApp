@@ -1,30 +1,33 @@
-package hotelApp;
+package src.hotelApp;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 class Hotel {
     ArrayList<Room> roomList;
     double revenue;
     ArrayList<Reservation> reservationList = new ArrayList<>();
 
-    public void cancelRes(String name, String phone) {
+    public void cancelRes(String resNum) {
         for (Reservation res : reservationList) {
-            Customer customer = res.getCustomer();
-            if (customer.getName().equals(name)) {
-                if (customer.getPhoneNumber().equals(phone)) {
-                    for (Room room : roomList) {
-                        if (res.getRoomType().equals(room.getRoomType())) {
-                            this.revenue -= room.getRoomFee();
-                            System.out.println(room.getRoomType() + "의 가격 " + room.getRoomFee() + "원이 환불되었습니다.");
-                            room.setReservationStatus();
-                            break;
-                        }
+            if (res.getReservationNumber().equals(resNum)) {
+                for (Room room : roomList) {
+                    if (res.getRoomType().equals(room.getRoomType())) {
+                        this.revenue -= room.getRoomFee();
+                        System.out.println(room.getRoomType() + "의 가격 " + room.getRoomFee() + "원이 환불되었습니다.");
+                        room.setReservationStatus();
+                        break;
                     }
+<<<<<<< HEAD
                     res.Cancel();
 
                     System.out.println("취소 완료되었습니다.");
                     break;
+=======
+>>>>>>> 6cc35ae4459c15a8010b19ab18102f90b42b6712
                 }
+                reservationList.remove(res);
+                System.out.println("취소 완료되었습니다.");
+                break;
+
             }
         }
     }
@@ -46,17 +49,13 @@ class Hotel {
     }
 
     public void displayRooms() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("객실 목록");
-        System.out.println("");
+        System.out.println();
         for (int i = 0; i < roomList.size(); i++) {
             Room room = roomList.get(i);
             System.out.println("객실 번호: " + (i + 1));
             room.displayRoomInfo(); // 객실 정보 출력
         }
     }
-
-    public void getRevenue() {}
-    private void getRoomListCheck() {}
 
 }

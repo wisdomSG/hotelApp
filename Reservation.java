@@ -1,4 +1,4 @@
-package hotelApp;
+package src.hotelApp;
 
 public class Reservation{
     private String roomType;
@@ -27,12 +27,5 @@ public class Reservation{
 
     public Customer getCustomer() {
         return customer;
-    }
-
-    public void Cancel(){
-        roomType = "";
-        reservationDate = "";
-        reservationNumber = "";
-        customer = null;
     }
 }

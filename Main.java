@@ -108,7 +108,11 @@ public class Main {
             String reservationInput = checkScanner.nextLine();
             for(Reservation r : hotel.reservationList ) {
                 if(r.getReservationNumber() == reservationInput) {
-                    // show reservation
+                    System.out.println(r.getReservationNumber());
+                    System.out.println(r.getCustomer().getName());
+                    System.out.println(r.getCustomer().getPhoneNumber());
+                    System.out.println(r.getRoomType());
+                    System.out.println(r.getReservationDate());
                     // break;
                 }
                 else {
@@ -151,7 +155,6 @@ public class Main {
                 System.out.println("잘못된 입력입니다. 다시 입력해주세요");
                 CustomerReservationSystem();
                 break;
-
         }
 
     }

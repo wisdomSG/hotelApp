@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class Hotel {
-    private  ArrayList<Room> roomList;
+    ArrayList<Room> roomList;
     double revenue;
     ArrayList<Reservation> reservationList = new ArrayList<>();
 

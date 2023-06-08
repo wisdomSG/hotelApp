@@ -1,4 +1,4 @@
-package src.hotelApp;
+package hotelApp;
 
 public class Customer {
 
@@ -10,6 +10,13 @@ public class Customer {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.money = 0.0; // 초기자금 0으로 설정
+    }
+
+    public String getName(){
+        return name;
+    }
+    public String getPhoneNumber(){
+        return phoneNumber;
     }
     public void setMoney(double money) {
         this.money = money;

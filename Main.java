@@ -1,4 +1,4 @@
-package src.hotelApp;
+package hotelApp;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
@@ -68,6 +68,9 @@ public class Main {
 
     private static void printAllReservation(){
         // 모든 예약된 정보 출력하기!
+        for(Reservation printRervation : hotel.reservationList ) {
+            System.out.println(printRervation);
+        }
     }
 
     private static void displayIntroduce() {
@@ -106,23 +109,16 @@ public class Main {
             System.out.println("예약번호를 입력해 주세요");
             System.out.print("예약번호: ");
             String reservationInput = checkScanner.nextLine();
-            for(Reservation r : hotel.reservationList ) {
-                if(r.getReservationNumber() == reservationInput) {
-                    System.out.println(r.getReservationNumber());
-                    System.out.println(r.getCustomer().getName());
-                    System.out.println(r.getCustomer().getPhoneNumber());
-                    System.out.println(r.getRoomType());
-                    System.out.println(r.getReservationDate());
-                    // break;
+            for(Reservation printRervation : hotel.reservationList ) {
+                if(printRervation.getReservationNumber().equals(reservationInput)) {
+                    System.out.println(printRervation);
+                    break;
                 }
                 else {
 
                 }
             }
-            // sout(예약번호를 찾을수 없습니다.)
 
-            // for(int i = 0; i < hotel.reservationList.size(); i++)
-            //if( hotel.reservationList.get(i).getReservationNumber() == reservationInput)
 
         }
         catch (NumberFormatException e){

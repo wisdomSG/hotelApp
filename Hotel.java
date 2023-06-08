@@ -54,7 +54,6 @@ class Hotel {
             room.displayRoomInfo(); // 객실 정보 출력
         }
     }
-
     public Customer getCustomer() {
         return main.getCustomer();
     }

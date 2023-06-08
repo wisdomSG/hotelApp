@@ -35,5 +35,4 @@ public class Customer {
     public void refundMoney(double amount) {
         money += amount;
     }
-
 }

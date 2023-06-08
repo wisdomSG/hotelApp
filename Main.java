@@ -233,6 +233,7 @@ public class Main {
             System.out.println("해당 객실은 예약할 수 없습니다.");
         }
     }
+
     public Customer getCustomer() {
         return customer;
     }

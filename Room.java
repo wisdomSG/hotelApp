@@ -12,22 +12,21 @@ public class Room {
         this.roomSize = roomSize;
         this.reservationStatus = reservationStatus;
     }
-
+    public String getRoomType() {
+        return roomType;
+    }
+    public double getRoomFee() {
+        return roomFee;
+    }
+    public void setReservationStatus() {
+        this.reservationStatus = !reservationStatus;
+    }
     public void displayRoomInfo() {
         System.out.println("객실 타입: " + roomType);
         System.out.println("객실 요금: " + roomFee + " $");
         System.out.println("객실 크기: " + roomSize + " 평");
         System.out.println((reservationStatus ? "예약 가능" : "예약 불가능"));
         System.out.println();
-    }
-    public void setReservationStatus() {
-        this.reservationStatus = !reservationStatus;
-    }
-    public String getRoomType() {
-        return roomType;
-    }
-    public double getRoomFee() {
-        return roomFee;
     }
 }
 

@@ -14,7 +14,6 @@ public class Main {
         Main main = new Main();
         main.start();
     }
-
     public void start() {
         hotel = new Hotel();
         hotel.initializeRooms(); // Room 정보 가져오기
@@ -32,56 +31,45 @@ public class Main {
                 continue;
             }
             switch (choice) {
-                case 0 -> {
-                    displayManager();
-                    ChoiceManager();
-                }
+                case 0 -> ChoiceManager(); // 매니져 모드
                 case 1 -> hotel.displayRooms(); // 객실 조회
                 case 2 -> checkCustomerInfo();  // 객실 예약
                 case 3 -> enterCustomerInfo();  //고객 정보 등록
-                case 100 ->{
-                    System.out.println("시스템이 종료되었습니다 -슬슬기-");
-                }
+                case 100 -> System.out.println("시스템이 종료되었습니다 -슬슬기-");
                 default -> System.out.println("잘못된 입력입니다. 1 또는 2를 입력해주세요");
             }
         }
     }
-
-    private static void displayManager() {
-        System.out.println("1. 예약 목록 조회");
-        System.out.println("2. 돌아가기");
-    }
-
     private void ChoiceManager() {
         Scanner sc = new Scanner(System.in);
+
+        System.out.println("1. 예약 목록 조회");
+        System.out.println("2. 돌아가기");
         int input = sc.nextInt();
         switch (input) {
             case 1:
-                printAllReservation();
                 // 예약 목록 조회 기능 구현
+                printAllReservation();
                 break;
             case 2:
                 // 돌아가기 기능 구현
                 break;
             default:
                 System.out.println("잘못된 입력입니다. 다시 입력하세요");
-                displayManager();
+                ChoiceManager();
         }
     }
-
     private void printAllReservation(){
         // 모든 예약된 정보 출력하기!
         if(hotel.reservationList.isEmpty()) {
             System.out.println("예약된 정보가 없습니다");
-            return;
         }
         else {
-            for(Reservation printRervation : hotel.reservationList ) {
-                System.out.println(printRervation);
+            for(Reservation printReservation : hotel.reservationList ) {
+                System.out.println(printReservation);
             }
         }
     }
-
     private void displayIntroduce() {
         System.out.println("블베스 호텔에 오신 것을 환영합니다 :) ");
         System.out.println("1. 객실 조회");
@@ -92,13 +80,11 @@ public class Main {
             System.out.println("고객의 소지금: $" + customer.getMoney());
         }
     }
-
     private static void displaySubIntro() {
         System.out.println("1. 객실 예약");
         System.out.println("2. 예약 확인");
         System.out.println("3. 예약 취소");
     }
-
     private void enterCustomerInfo() {
         Scanner sc = new Scanner(System.in);
         System.out.print("이름을 입력하세요: ");
@@ -110,7 +96,6 @@ public class Main {
         customer = new Customer(name, phoneNumber, money);
         System.out.println("고객 정보가 입력되었습니다.");
     }
-
     private void checkCustomerInfo() {
         if (customer == null) {
             System.out.println("고객 정보가 없습니다. 등록 후 이용부탁드립니다.");
@@ -119,7 +104,6 @@ public class Main {
             CustomerReservationSystem();
         }
     }
-
     private void checkReservation() {
         // 해당 손님의 정보 1건만 출력하기
         Scanner checkScanner = new Scanner(System.in);
@@ -128,14 +112,11 @@ public class Main {
             System.out.println("예약번호를 입력해 주세요");
             System.out.print("예약번호: ");
             String reservationInput = checkScanner.nextLine();
-            for(Reservation printRervation : hotel.reservationList ) {
-                if(printRervation.getReservationNumber().equals(reservationInput)) {
-                    System.out.println(printRervation);
+            for(Reservation printReservation : hotel.reservationList ) {
+                if(printReservation.getReservationNumber().equals(reservationInput)) {
+                    System.out.println(printReservation);
                     flag = false;
                     break;
-                }
-                else {
-
                 }
             }
             if(flag) System.out.println("예약번호가 일치하지 않습니다");
@@ -145,7 +126,6 @@ public class Main {
             checkReservation();
         }
     }
-
     private void CustomerReservationSystem() {
         Scanner sc = new Scanner(System.in);
         System.out.print("번호를 선택해주세요 >> ");
@@ -163,7 +143,6 @@ public class Main {
                 CustomerReservationSystem();
             }
         }
-
     }
     public void roomReservation() {
         Scanner sc = new Scanner(System.in);
@@ -182,57 +161,49 @@ public class Main {
                 break;
             }
         }
-
         // 해당 객실이 예약 가능한지 확인하고 예약 처리
         if (selectedRoom != null && selectedRoom.reservationStatus) {
             System.out.println(roomType + "을(를) 예약합니다.");
             LocalDateTime reservationDate = LocalDateTime.parse(String.valueOf(LocalDateTime.now()));
-            // 예약 중복 체크
-            boolean isDuplicateReservation = false;
+
             for (Reservation reservation : hotel.reservationList) {
                 if (reservation.getRoomType().equals(roomType) && reservation.getReservationDate().equals(reservationDate)) {
-                    isDuplicateReservation = true;
                     break;
                 }
             }
+            // 예약한 객실의 가격과 고객의 소지금 비교
+            double roomFee = selectedRoom.getRoomFee();
+            double customerMoney = customer.getMoney();
 
-            if (isDuplicateReservation) {
-                System.out.println("해당 날짜에 이미 예약이 존재하여 예약할 수 없습니다.");
+            if (customerMoney < roomFee) {
+                System.out.println("고객의 소지금이 부족하여 예약할 수 없습니다.");
+                System.out.println("고객의 소지금: " + customerMoney +"$");
+                System.out.println("객실의 가격: " + roomFee+"$");
             } else {
-                // 예약한 객실의 가격과 고객의 소지금 비교
-                double roomFee = selectedRoom.getRoomFee();
-                double customerMoney = customer.getMoney();
+                // 예약번호 생성
+                UUID reservationId = UUID.randomUUID();
+                String reservationNumber = reservationId.toString();
+                // 예약 객체 생성
+                Reservation reservation = new Reservation(customer.getName(), customer.getPhoneNumber(), roomType, reservationDate,reservationNumber);
 
-                if (customerMoney < roomFee) {
-                    System.out.println("고객의 소지금이 부족하여 예약할 수 없습니다.");
-                    System.out.println("고객의 소지금: " + customerMoney +"$");
-                    System.out.println("객실의 가격: " + roomFee+"$");
-                } else {
-                    // 예약번호 생성
-                    UUID reservationId = UUID.randomUUID();
-                    String reservationNumber = reservationId.toString();
-                    // 예약 객체 생성
-                    Reservation reservation = new Reservation(customer.getName(), customer.getPhoneNumber(), roomType, reservationDate,reservationNumber);
+                // 예약 정보를 예약 목록에 추가
+                hotel.reservationList.add(reservation);
 
-                    // 예약 정보를 예약 목록에 추가
-                    hotel.reservationList.add(reservation);
+                // 매출 업데이트
+                hotel.revenue += roomFee;
 
-                    // 매출 업데이트
-                    hotel.revenue += roomFee;
+                // 예약 상태 변경
+                selectedRoom.setReservationStatus();
 
-                    // 예약 상태 변경
-                    selectedRoom.setReservationStatus();
+                // 고객의 남은 소지금 계산
+                double remainingMoney = customerMoney - roomFee;
+                customer.setMoney(remainingMoney);
 
-                    // 고객의 남은 소지금 계산
-                    double remainingMoney = customerMoney - roomFee;
-                    customer.setMoney(remainingMoney);
-
-                    System.out.println("객실이 예약되었습니다.");
-                    DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy년 M월 d일");
-                    System.out.println("예약 일자 :" +reservationDate.format(dateTimeFormatter)+ " 입니다.");
-                    System.out.println("예약 번호는 : " +reservationNumber+ " 입니다.");
-                    System.out.println("고객의 남은 소지금: $" + remainingMoney);
-                }
+                System.out.println("객실이 예약되었습니다.");
+                DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy년 M월 d일");
+                System.out.println("예약 일자 :" +reservationDate.format(dateTimeFormatter)+ " 입니다.");
+                System.out.println("예약 번호는 : " +reservationNumber+ " 입니다.");
+                System.out.println("고객의 남은 소지금: $" + remainingMoney);
             }
         } else {
             System.out.println("해당 객실은 예약할 수 없습니다.");

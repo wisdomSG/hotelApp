@@ -14,7 +14,7 @@ public class Main {
         Main main = new Main();
         main.start();
     }
-    public void start() {
+    private void start() {
         hotel = new Hotel();
         hotel.initializeRooms(); // Room 정보 가져오기
 
@@ -50,6 +50,8 @@ public class Main {
             case 1:
                 // 예약 목록 조회 기능 구현
                 printAllReservation();
+                // revenue 메서드 만들기
+                System.out.println("호텔의 총 수익: " + hotel.getRevenue());
                 break;
             case 2:
                 // 돌아가기 기능 구현
@@ -71,7 +73,7 @@ public class Main {
         }
     }
     private void displayIntroduce() {
-        System.out.println("블베스 호텔에 오신 것을 환영합니다 :) ");
+        System.out.println("[ 블베스 호텔에 오신 것을 환영합니다 :) ] ");
         System.out.println("1. 객실 조회");
         System.out.println("2. 예약");
         System.out.println("3. 회원 등록");
@@ -98,7 +100,7 @@ public class Main {
     }
     private void checkCustomerInfo() {
         if (customer == null) {
-            System.out.println("고객 정보가 없습니다. 등록 후 이용부탁드립니다.");
+            System.out.println("고객 정보가 없습니다. 등록 후 이용부탁드립니다.\n");
         } else {
             displaySubIntro();
             CustomerReservationSystem();
@@ -121,14 +123,14 @@ public class Main {
             }
             if(flag) System.out.println("예약번호가 일치하지 않습니다");
         }
-        catch (NumberFormatException e){
+        catch (NumberFormatException e) {
             System.out.println("잘못된 형식으로 적으셨습니다");
             checkReservation();
         }
     }
     private void CustomerReservationSystem() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("번호를 선택해주세요 >> ");
+        System.out.print("번호를 선택해주세요 : ");
         int input = sc.nextInt();
         switch (input) {
             case 1 -> roomReservation();  // 객실 예약 기능 구현

@@ -26,7 +26,7 @@ public class Reservation{
     @Override
     public String toString(){
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy년 M월 d일");
-        return  "예약번호: " + reservationNumber + "\n" +
+        return  " 예약번호: " + reservationNumber + "\n" +
                 " 이름: " + customer.getName() + "\n" +
                 " 핸드폰번호: " + customer.getPhoneNumber() + "\n" +
                 " 방: " + roomType + "\n" +

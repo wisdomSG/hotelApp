@@ -21,11 +21,13 @@ public class Room {
     public void setReservationStatus() {
         this.reservationStatus = !reservationStatus;
     }
+
     public void displayRoomInfo() {
+        System.out.println((reservationStatus ? "   -예약 가능-" : "***예약 불가능***"));
         System.out.println("객실 타입: " + roomType);
-        System.out.println("객실 요금: " + roomFee + " $");
-        System.out.println("객실 크기: " + roomSize + " 평");
-        System.out.println((reservationStatus ? "예약 가능" : "예약 불가능"));
+        System.out.println("객실 요금: " + "$ " + roomFee);
+        System.out.println("객실 크기: " + roomSize + " m2");
+
         System.out.println();
     }
 }

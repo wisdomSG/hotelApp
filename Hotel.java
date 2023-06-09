@@ -16,7 +16,7 @@ class Hotel {
                 for (Room room : roomList) {
                     if (res.getRoomType().equals(room.getRoomType())) {
                         this.revenue -= room.getRoomFee();
-                        System.out.println(room.getRoomType() + "의 가격 " + room.getRoomFee() + "원이 환불되었습니다.");
+                        System.out.println(room.getRoomType() + "의 가격 : " + room.getRoomFee() + "원이 환불되었습니다.");
                         room.setReservationStatus();
                         customer.refundMoney(room.getRoomFee());
                         break;
@@ -45,8 +45,12 @@ class Hotel {
         System.out.println();
         for (int i = 0; i < roomList.size(); i++) {
             Room room = roomList.get(i);
-            System.out.println("객실 번호: " + (i + 1));
+            System.out.println("[ 객실 번호: " + (i + 1) + " ]");
             room.displayRoomInfo(); // 객실 정보 출력
         }
+    }
+
+    public double getRevenue() {
+        return revenue;
     }
 }
